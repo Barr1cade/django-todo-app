@@ -15,14 +15,16 @@ def home(request):
 
 
 def confirmpage(request):
-    if request.method == 'POST':
-        codeword = request.POST.get('password')
-        if codeword == 'password123':
-            return redirect('signupuser')
-        else:
-            return redirect('confirmpage')
-    else:
+    if request.method == 'GET':
         return render(request, 'todo/confirmpage.html')
+    else:
+        if request.method == 'POST':
+            codeword = request.POST.get('password')
+            if codeword == 'password123':
+                return redirect('signupuser')
+            else:
+                return render(request, 'todo/confirmpage.html', {"error": "Invalid password. Try again please."})
+
 
 
 def signupuser(request):

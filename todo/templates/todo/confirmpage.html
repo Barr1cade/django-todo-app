@@ -4,11 +4,16 @@
 
 <div class="container text-center">
     <br>
+    {% if error %}
+    <div class="alert alert-danger" role="alert">
+        {{ error }}
+    </div>
+    {% endif %}
     <p>
     <h1>Enter password please:</h1>
     </p>
     <form action="{% url 'confirmpage' %}" method="POST" name="MyForm">
-         {% csrf_token %}
+        {% csrf_token %}
         <br>
         <p>
             <input type="text" name="password">
