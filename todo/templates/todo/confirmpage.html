@@ -1,0 +1,20 @@
+{% extends "todo/base.html" %}
+
+{% block content %}
+
+<div class="container text-center">
+    <br>
+    <p>
+    <h1>Enter password please:</h1>
+    </p>
+    <form action="{% url 'confirmpage' %}" method="POST" name="MyForm">
+         {% csrf_token %}
+        <br>
+        <p>
+            <input type="text" name="password">
+        </p>
+        <br>
+        <input type="submit" class="btn btn-primary" value="Submit">
+    </form>
+</div>
+{% endblock %}
