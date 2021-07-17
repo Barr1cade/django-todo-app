@@ -38,11 +38,15 @@
                     <a class="nav-link" href="{% url 'createtodo' %}">Create</a>
                 </li>
 
+
         </ul>
     {% endif %}
     <ul class="navbar-nav ml-auto">
             {% if user.is_authenticated %}
                 <li class="nav-item">
+                    <li class="navbar-nav nav-item">
+                    <a class="nav-link" href="#">Добрый день, {{ user }}!</a>
+                    </li>
                     <a href="#" onclick="$('#signOutBtn').click()" class="nav-link">Logout</a>
                     <form style='display: none;' method="POST" action="{% url 'logoutuser' %}">
                         {% csrf_token %}

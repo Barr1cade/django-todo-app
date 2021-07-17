@@ -20,7 +20,7 @@ def confirmpage(request):
     else:
         if request.method == 'POST':
             codeword = request.POST.get('password')
-            if codeword == 'password123':
+            if codeword == 'learndjango123':
                 return redirect('signupuser')
             else:
                 return render(request, 'todo/confirmpage.html', {"error": "Invalid password. Try again please."})
